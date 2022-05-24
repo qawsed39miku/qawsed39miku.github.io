@@ -11,6 +11,9 @@
   <body>
     <script type="text/javascript">
       /*クッキーのカウンタ */
+      localStorage.setItem('c_count', 0);
+      cookie_count = parseInt(localStorage.getItem('c_count', 0));
+      
       cookie_count = 0;
       function cookieClick(num) {
         var count_text = document.getElementById('cookie_count')
@@ -19,8 +22,29 @@
       }
 
       function cursor() {
-        setInterval(cookieClick,1000,8)
+        setInterval(cookieClick,10000,1)
       }
+
+      function grandma(){
+        if (cookie_count >=100) {
+          cookie_count -= 100;
+
+        setInterval(cookieClick,5000,1)
+       }
+
+      }
+
+      function monster(){
+        setInterval(cookieClick,2000,4)
+      }
+
+      function farm() {
+        setInterval(cookieClick,1000,16)
+
+      }
+
+
+
 
 
 
