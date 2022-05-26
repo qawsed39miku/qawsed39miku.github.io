@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <style media="screen">
-    body{background-image: url("cookie.png");}
+    body{background-image: url("backg.png");}
       img{width:300px;}
     </style>
   </head>
@@ -28,11 +28,17 @@
       }
 
 
+      setInterval(screen_update,100);
+      function screen_update() {
+        var count_text = document.getElementById('cookie_count')
+        count_text.textContent = cookie_count;
+      }
+
+
 
       function cookieClick(num) {
-        var count_text = document.getElementById('cookie_count')
+
         cookie_count= cookie_count + num;
-        count_text.textContent = cookie_count;
       }
 
       function cursor() {
