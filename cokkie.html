@@ -11,10 +11,24 @@
   <body>
     <script type="text/javascript">
       /*クッキーのカウンタ */
-      localStorage.setItem('c_count', 0);
-      cookie_count = parseInt(localStorage.getItem('c_count', 0));
+
+      let ls_count = localStorage.getItem("ls_count");
+
+      if(ls_count){
+        cokkie_count = parseInt(ls_count);
+      }else {
+        cookie_count = 0;
+      }
       
-      cookie_count = 0;
+
+      setInterval(save_action,1000);
+
+      function save_action() {
+        localStorage.setItem("ls_count",cokkie_count);
+      }
+
+
+
       function cookieClick(num) {
         var count_text = document.getElementById('cookie_count')
         cookie_count= cookie_count + num;
@@ -35,14 +49,20 @@
       }
 
       function monster(){
+        if (cookie_count >=200) {
+          cookie_count -= 200;
         setInterval(cookieClick,2000,4)
       }
 
+    }
+
       function farm() {
+        if (cookie_count >=300) {
+          cookie_count -= 300;
         setInterval(cookieClick,1000,16)
 
       }
-
+}
 
 
 
