@@ -19,7 +19,7 @@
       }else {
         cookie_count = 0;
       }
-      
+
 
       setInterval(save_action,1000);
 
@@ -36,8 +36,10 @@
       }
 
       function cursor() {
-        setInterval(cookieClick,10000,1)
-      }
+          if(cookie_count >=10){
+            cookie_count -= 10;
+            setInterval(cookieClick,1000,1);
+          }
 
       function grandma(){
         if (cookie_count >=100) {
@@ -75,9 +77,9 @@
     <img onclick="cookieClick(1)" src="cookie.png" alt="">
 <ul>
   <li onclick="cursor()">カーソル</li>
- <li>おばあちゃん</li>
-<li>クッキーモンスター</li>
-<li>クッキー農園</li>
+ <li>onclick="grandma()"おばあちゃん</li>
+<li>onclick="monster()"クッキーモンスター</li>
+<li>onclick="farm()"クッキー農園</li>
 <li>クッキー工場</li>
 
 </ul>
