@@ -4,91 +4,79 @@
     <meta charset="utf-8">
     <title></title>
     <style media="screen">
-    body{background-image: url("backg.png");}
-      img{width:300px;}
+      img{width:400px;}
     </style>
   </head>
   <body>
     <script type="text/javascript">
       /*クッキーのカウンタ */
-
       let ls_count = localStorage.getItem("ls_count");
-
-      if(ls_count){
+      if (ls_count){
         cookie_count = parseInt(ls_count);
       }else {
         cookie_count = 0;
       }
 
-
       setInterval(save_action,1000);
-
       function save_action() {
         localStorage.setItem("ls_count",cookie_count);
       }
 
-
-      setInterval(screen_update,100);
-      function screen_update() {
+      function cookieClick(num) {
         var count_text = document.getElementById('cookie_count')
+        cookie_count= cookie_count + num;
         count_text.textContent = cookie_count;
       }
 
-
-
-      function cookieClick(num) {
-
-        cookie_count= cookie_count + num;
-      }
-
       function cursor() {
-          if(cookie_count >=10){
-            cookie_count -= 10;
-            setInterval(cookieClick,1000,1);
-          }
-
-      function grandma(){
-        if (cookie_count >=100) {
+        if(cookie_count >=10){
+          cookie_count -= 10;
+          setInterval(cookieClick,1000,1);
+        }
+      }
+      function grandma() {
+        if(cookie_count >=100){
           cookie_count -= 100;
-
-        setInterval(cookieClick,5000,1)
-       }
-
+          setInterval(cookieClick,1000,1);
+        }
       }
-
-      function monster(){
-        if (cookie_count >=200) {
-          cookie_count -= 200;
-        setInterval(cookieClick,2000,4)
-      }
-
-    }
-
       function farm() {
-        if (cookie_count >=300) {
-          cookie_count -= 300;
-        setInterval(cookieClick,1000,16)
-
+        if(cookie_count >=200){
+          cookie_count -= 200;
+          setInterval(cookieClick,1000,8);
+        }
       }
-}
-
-
-
-
+      function mine() {
+        if(cookie_count >=300){
+          cookie_count -= 300;
+          setInterval(cookieClick,1000,100);
+        }
+      }
 
     </script>
-    <p>
-      <span id="cookie_count"></span> cookies
-    </p>
-    <img onclick="cookieClick(1)" src="cookie.png" alt="">
-<ul>
-  <li onclick="cursor()">カーソル</li>
- <li onclick="grandma()">おばあちゃん</li>
-<li onclick="monster()">クッキーモンスター</li>
-<li onclick="farm()">クッキー農園</li>
-<li>クッキー工場</li>
+    
+    <div class="item1">
+      <p>
+        <span id="cookie_count"></span> cookies
+      </p>
+      <img onclick="cookieClick(1)" src="cookie.png" alt="">
 
-</ul>
+    </div>
+    <div class="item2">
+      制作途中
+    </div>
+
+  <div class="item3">
+    <ul>
+    <li onclick="cursor()">カーソル</li>
+    <li onclick="grandma()">グランマ</li>
+    <li onclick="farm()">ファーム</li>
+    <li onclick="mine()">マイン</li>
+    <li>ファクトリー</li>
+  </ul>
+  </div>
+
+
 
   </body>
 </html>
