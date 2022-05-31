@@ -31,7 +31,12 @@
       }
 
       function cookieClick(num) {
-        var count_text = document.getElementById('cookie_count')
+        var cookkie_img = document.getElementById('cookie_count');
+        cookkie_img.classList>remove('animate__animated','animate__shakeX');
+        void cookkie_img.offsetWidth;
+        cookkie_img.classList>add('animate__animated','animate__shakeX');
+        var count_text = document.getElementById('cookie_count');
+
         cookie_count= cookie_count + num;
         count_text.textContent = cookie_count;
       }
@@ -69,7 +74,7 @@
         <p>
           <span id="cookie_count"></span> cookies
         </p>
-        <img onclick="cookieClick(1)" src="cookie.png" alt="">
+        <img id="cookkie_img"onclick="cookieClick(1)" src="cookie.png" alt="">
 
       </div>
 
