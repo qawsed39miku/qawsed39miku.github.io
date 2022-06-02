@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
     <meta charset="utf-8">
     <title></title>
     <style media="screen">
@@ -14,6 +10,10 @@
       .item2{flex-grow: 4;}
       .item3{flex-grow: 3;}
     </style>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   </head>
   <body>
     <script type="text/javascript">
@@ -29,6 +29,20 @@
       function save_action() {
         localStorage.setItem("ls_count",cookie_count);
       }
+
+      su_event_id = setInterval(screen_update,100);
+      function screen_update() {
+        var count_text = document.getElementById('cookie_count')
+        count_text.textContent = cookie_count;
+      }
+
+      function event_clear() {
+        clearInterval(su_event_id);
+      }
+
+
+
+
 
       function cookieClick(num) {
         var cookie_img = document.getElementById('cookie_count');
