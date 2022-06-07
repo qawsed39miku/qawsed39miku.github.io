@@ -17,6 +17,10 @@
   </head>
   <body>
     <script type="text/javascript">
+
+        /*インターバルIDの格納先*/
+        let event_ids = []
+
       /*クッキーのカウンタ */
       let ls_count = localStorage.getItem("ls_count");
       if (ls_count){
@@ -56,9 +60,20 @@
       function cursor() {
         if(cookie_count >=10){
           cookie_count -= 10;
-          setInterval(cookieClick,1000,1);
+          let r_id =  setInterval(cookieClick,1000,1);
+          event_ids.push(r_id);
         }
       }
+
+      function sell_cursor() {
+        if(event_ids.length > 0){
+        let r_id = event_ids.pop();
+        clearInterval(r_id);
+      }
+      
+      }
+
+
       function grandma() {
         if(cookie_count >=100){
           cookie_count -= 100;
@@ -96,6 +111,7 @@
       </div>
 
     <div class="item3">
+      購入
       <ul>
       <li onclick="cursor()">カーソル</li>
       <li onclick="grandma()">グランマ</li>
@@ -103,6 +119,17 @@
       <li onclick="mine()">マイン</li>
       <li>ファクトリー</li>
     </ul>
+
+    売却
+    <ul>
+      <li onclick="sell_cursor()">カーソル</li>
+      <li onclick="sell_grandma()">グランマ</li>
+      <li onclick="sell_farm()">ファーム</li>
+      <li onclick="sell_mine()">マイン</li>
+      <li>ファクトリー</li>
+  </ul>
+
+
     </div>
     </div>
 
