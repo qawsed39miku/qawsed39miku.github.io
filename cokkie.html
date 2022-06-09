@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
     <meta charset="utf-8">
     <title></title>
     <style media="screen">
@@ -100,6 +104,13 @@
         }
       }
 
+
+
+
+      function buildings_switch() {
+        let list_ele = document.getElementById('buildings_buy');
+        list.style.display = "none";
+      }
     </script>
 
 
@@ -118,24 +129,28 @@
       </div>
 
     <div class="item3">
-      購入
-      <ul>
-      <li onclick="cursor()">カーソル</li>
-      <li onclick="grandma()">グランマ</li>
-      <li onclick="farm()">ファーム</li>
-      <li onclick="mine()">マイン</li>
-      <li>ファクトリー</li>
-    </ul>
 
-    売却
+      <div id = "buildings_buy">
+          <span onclick="buildings_switch">購入</span>
+          <ul>
+            <li onclick="cursor()">カーソル</li>
+            <li onclick="grandma()">グランマ</li>
+            <li onclick="farm()">ファーム</li>
+            <li onclick="mine()">マイン</li>
+            <li>ファクトリー</li>
+          </ul>
+     </div>
+
+    <div id="buildings_sell">
+    <span onclick="buildings_switch">売却</span>
     <ul>
-      <li onclick="sell_cursor()">カーソル</li>
-      <li onclick="sell_grandma()">グランマ</li>
-      <li onclick="sell_farm()">ファーム</li>
-      <li onclick="sell_mine()">マイン</li>
-      <li>ファクトリー</li>
-  </ul>
-
+        <li onclick="sell_cursor()">カーソル</li>
+        <li onclick="sell_grandma()">グランマ</li>
+        <li onclick="sell_farm()">ファーム</li>
+        <li onclick="sell_mine()">マイン</li>
+        <li>ファクトリー</li>
+    </ul>
+    </div>
 
     </div>
     </div>
