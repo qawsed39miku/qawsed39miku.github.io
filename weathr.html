@@ -14,7 +14,8 @@
        xhr.onreadystatechange = function() {
            if(xhr.readyState === 4 && xhr.status === 200) {
 
-                console.log( JSON.parse(xhr.responseText)["daily"]["weathercode"][1] );
+           let weathercode = ( JSON.parse(xhr.responseText)["daily"]["weathercode"][1] );
+           document.write(weathercode);
            }
        }
 
