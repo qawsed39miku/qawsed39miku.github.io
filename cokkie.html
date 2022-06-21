@@ -34,12 +34,40 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
   </head>
-  
+
   <body>
     <script type="text/javascript">
 
         /*インターバルIDの格納先*/
         let event_ids = [];
+class Building{
+      //初期値の定義
+      constructor(time,num){
+        this.event_ids = [];
+        this.interval_time = time;
+        this.add_num = num;
+      }
+
+        //カウントアップのメソッド
+        count_up(num){
+          count+=num
+        }
+        //購入した場合のメソッド
+        buy(){
+          let self = this;
+          let return_id = setInterval(function(){
+            self.count_up(self.add_num);
+          },1000);
+          this.event_ids.push(return_id);
+        }
+
+        //売却のメソッド
+        sell(){
+          let return_id = this.event_ids.pop();
+          clearInterval(return_id);
+        }
+}
+
 
       /*クッキーのカウンタ */
       let ls_count = localStorage.getItem("ls_count");
