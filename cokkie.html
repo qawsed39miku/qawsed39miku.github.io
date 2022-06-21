@@ -17,12 +17,8 @@
     display: flex;}
 
     .item1{flex-grow: 2;
-      background-image: url("bgBlue.jpg");}
-      .item2{flex-grow: 4;
-        background-color: green}
-        .item3{flex-grow: 3;
-          background-color: yellowgreen}
-
+      background-image: url("siromo.png");}
+      
           #buildings_sell{
             display: none;
           }
@@ -40,33 +36,6 @@
 
         /*インターバルIDの格納先*/
         let event_ids = [];
-class Building{
-      //初期値の定義
-      constructor(time,num){
-        this.event_ids = [];
-        this.interval_time = time;
-        this.add_num = num;
-      }
-
-        //カウントアップのメソッド
-        count_up(num){
-          count+=num
-        }
-        //購入した場合のメソッド
-        buy(){
-          let self = this;
-          let return_id = setInterval(function(){
-            self.count_up(self.add_num);
-          },1000);
-          this.event_ids.push(return_id);
-        }
-
-        //売却のメソッド
-        sell(){
-          let return_id = this.event_ids.pop();
-          clearInterval(return_id);
-        }
-}
 
 
       /*クッキーのカウンタ */
@@ -77,6 +46,36 @@ class Building{
       }else {
         cookie_count = 0;
       }
+
+      class Building{
+        //初期値の定義
+        constructor(time,num){
+          this.event_ids = [];
+          this.interval_time = time;
+          this.add_num = num;
+        }
+
+        //カウントアップのメソッド
+        count_up(num){
+          count+=num
+        }
+        //購入した場合のメソッド
+        buy(){
+          let self = this;
+          let return_id = setInterval(
+            function(){
+              self.count_up(self.add_num);
+            },1000);
+            this.event_ids.push(return_id);
+          }
+
+          //売却のメソッド
+              sell(){
+                let return_id = this.event_ids.pop();
+                clearInterval(return_id);
+              }
+      }
+
 
       setInterval(save_action,1000);
       function save_action() {
