@@ -57,6 +57,7 @@
           this.event_ids = [];
           this.interval_time = time;
           this.add_num = num;
+          this.cost = cost;
         }
 
         //カウントアップのメソッド
@@ -65,12 +66,17 @@
         }
         //購入した場合のメソッド
         buy(){
-          let self = this;
-          let return_id = setInterval(
-            function(){
-              self.count_up(self.add_num);
-            },1000);
-            this.event_ids.push(return_id);
+
+          if (cookie_count > this.cost) {
+            cookie_count -= this.cost;
+            let self = this;
+            let return_id = setInterval(
+              function(){
+                self.count_up(self.add_num);
+              },1000);
+              this.event_ids.push(return_id);
+          }
+
           }
 
           //売却のメソッド
@@ -78,7 +84,11 @@
                 let return_id = this.event_ids.pop();
                 clearInterval(return_id);
               }
-      }
+      };
+
+      let cursor = new Building(10000,1,10);
+
+      let grandma = new Building(10000,1,10);
 
 
       setInterval(save_action,1000);
