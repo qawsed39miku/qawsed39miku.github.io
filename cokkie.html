@@ -73,7 +73,7 @@
             let return_id = setInterval(
               function(){
                 self.count_up(self.add_num);
-              },1000);
+              },this.interval_time);
               this.interval_ids.push(return_id);
           }
 
@@ -81,7 +81,7 @@
 
           //売却のメソッド
               sell(){
-                let return_id = this.event_ids.pop();
+                let return_id = this.interval_ids.pop();
                 clearInterval(return_id);
               }
       };
@@ -104,9 +104,9 @@
       }
 
       let cursor = new Building(10000,1,10);
-      let grandma = new Building(10000,1,10);
-      let farm = new Building(10000,1,10);
-      let mine = new Building(10000,1,10);
+      let grandma = new Building(1000,4,100);
+      let farm = new Building(1000,8,500);
+      let mine = new Building(1000,16,1000);
 
 
       function cookieClick(num) {
