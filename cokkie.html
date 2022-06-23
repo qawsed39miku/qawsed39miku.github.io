@@ -86,9 +86,6 @@
               }
       };
 
-      let cursor = new Building(10000,1,10);
-
-      let grandma = new Building(10000,1,10);
 
 
       setInterval(save_action,1000);
@@ -106,8 +103,10 @@
         clearInterval(su_event_id);
       }
 
-
-
+      let cursor = new Building(10000,1,10);
+      let grandma = new Building(10000,1,10);
+      let farm = new Building(10000,1,10);
+      let mine = new Building(10000,1,10);
 
 
       function cookieClick(num) {
@@ -117,42 +116,6 @@
         cookie_img.classList.add('animate__animated','animate__shakeX');
 
         cookie_count= cookie_count + num;
-      }
-
-      function cursor() {
-        if(cookie_count >=10){
-          cookie_count -= 10;
-          let r_id =  setInterval(cookieClick,1000,1);
-          event_ids.push(r_id);
-        }
-      }
-
-      function sell_cursor() {
-        if(event_ids.length > 0){
-        let r_id = event_ids.pop();
-        clearInterval(r_id);
-      }
-
-      }
-
-
-      function grandma() {
-        if(cookie_count >=100){
-          cookie_count -= 100;
-          setInterval(cookieClick,1000,1);
-        }
-      }
-      function farm() {
-        if(cookie_count >=200){
-          cookie_count -= 200;
-          setInterval(cookieClick,1000,8);
-        }
-      }
-      function mine() {
-        if(cookie_count >=300){
-          cookie_count -= 300;
-          setInterval(cookieClick,1000,100);
-        }
       }
 
 
@@ -195,10 +158,10 @@
         <div id = "buildings_buy">
           <span onclick="buildings_switch()">購入</span>
           <ul>
-            <li onclick="cursor()">カーソル</li>
-            <li onclick="grandma()">グランマ</li>
-            <li onclick="farm()">ファーム</li>
-            <li onclick="mine()">マイン</li>
+            <li onclick="cursor.buy()">カーソル</li>
+            <li onclick="grandma.buy()">グランマ</li>
+            <li onclick="farm.buy()">ファーム</li>
+            <li onclick="mine.buy()">マイン</li>
             <li>ファクトリー</li>
           </ul>
         </div>
@@ -206,8 +169,8 @@
         <div id="buildings_sell">
           <span onclick="buildings_switch()">売却</span>
           <ul>
-            <li onclick="sell_cursor()">カーソル</li>
-            <li onclick="sell_grandma()">グランマ</li>
+            <li onclick="cursor.sell()">カーソル</li>
+            <li onclick="sell_grandma.sell()">グランマ</li>
             <li onclick="sell_farm()">ファーム</li>
             <li onclick="sell_mine()">マイン</li>
             <li>ファクトリー</li>
