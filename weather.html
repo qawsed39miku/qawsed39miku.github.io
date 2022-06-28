@@ -41,16 +41,21 @@
 
            weather_array = ["晴れ","晴れ","晴れ","晴れ","晴れ","晴れ","晴れ"];
 
-let　t_date = document.getElementById('date');
-let　t_weather = document.getElementById("weather");
+createWeatherTable(array,weather_array);
+
+function createWeatherTable(date_array,weather_array) {
+  let　t_date = document.getElementById('date');
+  let　t_weather = document.getElementById("weather");
 
 
-array.forEach(function (date,i) {
-    t_date.innerHTML = t_date.innerHTML + "<th>" + date + "</th>";
-    t_weather.innerHTML = t_weather.innerHTML + "<th>" + weather_array[i] + "</th>";
+  date_array.forEach(function (date,i) {
+      t_date.innerHTML = t_date.innerHTML + "<th>" + date + "</th>";
+      t_weather.innerHTML = t_weather.innerHTML + "<th>" + weather_array[i] + "</th>";
+      });
+}
 
 
-});
+
 
 
 
