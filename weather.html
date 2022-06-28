@@ -24,24 +24,17 @@
 
   xhr.onreadystatechange = function() {
     if(xhr.readyState === 4 && xhr.status === 200) {
+      let weather_data = JSON.parse(xhr.responseText);
 
-      let weathercode = JSON.parse(xhr.responseText)["daily"]["weathercode"][1];
-      //document.write(weathercode);
+      let date_array = weather_data.deily.time;
+      let weather_array = weather_data.daily.weathercode;
+
+      createWeatherTable(array,weather_array);
     }
   }
 
-  array = ["2022-6-16",
-           "2022-6-17",
-           "2022-6-18",
-           "2022-6-19",
-           "2022-6-20",
-           "2022-6-21",
-           "2022-6-22"];
 
 
-           weather_array = ["晴れ","晴れ","晴れ","晴れ","晴れ","晴れ","晴れ"];
-
-createWeatherTable(array,weather_array);
 
 function createWeatherTable(date_array,weather_array) {
   let　t_date = document.getElementById('date');
