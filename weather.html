@@ -47,7 +47,17 @@ function createWeatherTable(date_array,weather_array) {
       });
 }
 
+function wcodeToStr(code) {
+  let w_code_list = {
+                      0:"快晴",
+                      1:"晴れ",
+                      2:"晴れ",
+                      3:"晴れ",
+                      45:"くもり"
+  }
 
+  return w_code_list[parseInt(code)]
+}
 
 
 
