@@ -40,6 +40,8 @@ function createWeatherTable(date_array,weather_array) {
   let　t_date = document.getElementById('date');
   let　t_weather = document.getElementById("weather");
 
+  weather_array = weather_array.map(n => wcodeToStr(n));
+
 
   date_array.forEach(function (date,i) {
       t_date.innerHTML = t_date.innerHTML + "<th>" + date + "</th>";
