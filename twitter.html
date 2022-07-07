@@ -105,7 +105,8 @@ word-break: break-all;
 
     <script type="text/javascript">
     let timeline = document.getElementById('timeline');
-    let　tweets = ["ごきげんよう","ですわ","みなさま","(平々凡々)","(全知全能)"];
+    let　tweets = [  {"text":"ごきげんよう","username":"ロン毛生きろ"},{"text":"みなさま","username":"ロン毛生きろ"}];
+
 
     tweets.forEach((tweet) => {
       let template = `        <div class="tweet">
@@ -115,13 +116,14 @@ word-break: break-all;
                 <div class="tweet_box">
 
                   <div class="username">
-                    ロン毛生きろ
+                    ${tweet.username}\
                     <span class="name">@longhairsaikou</span>
                     <span class="date">2022/12/23</span>
 
 
                   </div>
-                  <div class="text">macはごみ</span>
+                  <div class="text">
+                  ${tweet.text}</span>
 
                 </div>
                 <div class="action">
