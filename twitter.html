@@ -107,7 +107,31 @@ word-break: break-all;
     let timeline = document.getElementById('timeline');
 
     for (var i = 0; i < 20; i++) {
-      timeline.innerHTML = timeline.innerHTML + "テスト<hr>"
+      let template = `        <div class="tweet">
+                <div class="icon">
+                    <img src="./egg.png" alt="">
+                </div>
+                <div class="tweet_box">
+
+                  <div class="username">
+                    a
+                    <span class="name">@a</span>
+                    <span class="date">2022/12/23</span>
+
+
+                  </div>
+                  <div class="text">a</span>
+
+                </div>
+                <div class="action">
+                     <span class="icon_chat">0</span>
+                     <span class="icon_fav">0</span>
+                     <span class="icon_share">0</span>
+                     <span class="icon_res">0</span>
+                   </div>
+                 </div>
+               </div>`
+      timeline.innerHTML = timeline.innerHTML + template;
     }
 
 
