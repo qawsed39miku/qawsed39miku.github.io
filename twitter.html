@@ -47,7 +47,7 @@ word-break: break-all;
 }
 .icon_chat{
   padding-left:35px;
-  background-image: url(./img/chat.svg);
+  background-image: url(./chat.svg);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -65,7 +65,7 @@ word-break: break-all;
 }
 .icon_share{
   padding-left:35px;
-  background-image: url(./img/share.svg);
+  background-image: url(./share.svg);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -85,13 +85,13 @@ word-break: break-all;
           <div class="tweet_box">
 
             <div class="username">
-              a
-              <span class="name">@a</span>
+              ロン毛生きろ
+              <span class="name">@longhairsaikou</span>
               <span class="date">2022/12/23</span>
 
 
             </div>
-            <div class="text">a</span>
+            <div class="text">ずんだもんなのだ</span>
 
           </div>
           <div class="action">
@@ -105,8 +105,9 @@ word-break: break-all;
 
     <script type="text/javascript">
     let timeline = document.getElementById('timeline');
+    let　tweets = ["ごきげんよう","ですわ","みなさま","(平々凡々)","(全知全能)"];
 
-    for (var i = 0; i < 20; i++) {
+    tweets.forEach((tweet) => {
       let template = `        <div class="tweet">
                 <div class="icon">
                     <img src="./egg.png" alt="">
@@ -132,7 +133,8 @@ word-break: break-all;
                  </div>
                </div>`
       timeline.innerHTML = timeline.innerHTML + template;
-    }
+
+    });
 
 
     </script>
