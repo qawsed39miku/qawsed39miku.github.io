@@ -120,7 +120,7 @@ async function post_tweet(text,name,username) {
     }
 
     async function getJson(){
-      let response = await (await fetch ("http://129.168.0.90/timeline.json")).json();
+      let response = await (await fetch ("http://192.168.0.90/tweet.rb")).json();
       return response;
     }
 
