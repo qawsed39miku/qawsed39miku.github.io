@@ -69,6 +69,20 @@ word-break: break-all;
   background-size: contain;
   background-repeat: no-repeat;
 }
+.tw-button {
+    display: inline;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(29, 155, 240);
+    color: #fff;
+    font-weight: bold;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
 
 .action{display:flex;}
 .action span{width:25%;}
@@ -84,7 +98,7 @@ word-break: break-all;
           </div>
           <div class="tweet">
             <input type="text"id = "input_text" placeholder="ここに入力してね！">
-            <button onclick="form_tweet()" type="submit">送信</button>
+            <button class="form_tweet()" type="submit">送信</button>
              </div>
            </div>
          </div>
@@ -126,11 +140,12 @@ async function post_tweet(text,name,username) {
 
 function appsendTweet(tweets) {
   let old_tweets = document.getElementByClassName("tweet");
-  while(old_tweets.length>2){
+  while(old_tweets.length>1){
     old_tweets.item(1).remove();
   }
 
   let tmp_tweets = "";
+
     tweets.forEach((tweet) => {
       let template = `        <div class="tweet">
                 <div class="icon">
@@ -156,9 +171,8 @@ function appsendTweet(tweets) {
                    </div>
                  </div>
                </div>`
-               tmp_tweets = tmp_tweets + template;
-
-    });
+             tmp_tweets = tmp_tweets + template;
+           });
     timeline.innerHTML = timeline.innerHTML + tmp_tweets;
 }
 
