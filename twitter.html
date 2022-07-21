@@ -85,7 +85,6 @@ word-break: break-all;
           <div class="tweet">
             <input type="text"id = "input_text" placeholder="ここに入力してね！">
             <button onclick="form_tweet()" type="submit">送信</button>
-
              </div>
            </div>
          </div>
@@ -126,6 +125,12 @@ async function post_tweet(text,name,username) {
 
 
 function appsendTweet(tweets) {
+  let old_tweets = document.getElementByClassName("tweet");
+  while(old_tweets.length>2){
+    old_tweets.item(1).remove();
+  }
+
+  let tmp_tweets = "";
     tweets.forEach((tweet) => {
       let template = `        <div class="tweet">
                 <div class="icon">
@@ -134,14 +139,13 @@ function appsendTweet(tweets) {
                 <div class="tweet_box">
 
                   <div class="username">
-                    ${tweet.username}\
+                    ${escapeText(tweet.username)}
                     <span class="name">@longhairsaikou</span>
                     <span class="date">2022/12/23</span>
 
-
                   </div>
                   <div class="text">
-                  ${tweet.text}</span>
+                  ${escapeText(tweet.text)}
 
                 </div>
                 <div class="action">
@@ -152,9 +156,10 @@ function appsendTweet(tweets) {
                    </div>
                  </div>
                </div>`
-      timeline.innerHTML = timeline.innerHTML + template;
+               tmp_tweets = tmp_tweets + template;
 
     });
+    timeline.innerHTML = timeline.innerHTML + tmp_tweets;
 }
 
     </script>
