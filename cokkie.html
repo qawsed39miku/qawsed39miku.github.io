@@ -54,7 +54,7 @@
       class Building{
         //初期値の定義
         constructor(time,num,cost){
-          this.event_ids = [];
+          this.interval_ids = [];
           this.interval_time = time;
           this.add_num = num;
           this.cost = cost;
@@ -62,7 +62,7 @@
 
         //カウントアップのメソッド
         count_up(num){
-          count += num;
+          cookie_count += num;
         }
         //購入した場合のメソッド
         buy(){
@@ -171,8 +171,8 @@
           <ul>
             <li onclick="cursor.sell()">カーソル</li>
             <li onclick="grandma.sell()">グランマ</li>
-            <li onclick="farm()">ファーム</li>
-            <li onclick="mine()">マイン</li>
+            <li onclick="farm.sell()">ファーム</li>
+            <li onclick="mine.sell()">マイン</li>
             <li>ファクトリー</li>
           </ul>
         </div>
